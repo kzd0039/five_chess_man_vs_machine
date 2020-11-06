@@ -25,17 +25,17 @@ def check(board, isBlack, chessCount):
                 linkedChess = 1
                 color = board[r][c]
                 for d in direction:
-                    i = r, j = c
                     for a, b in d:
+                        i = r, j = c
                         i += a
                         j += b
                         while isValid(i,j) and board[i][j] == color:
                             linkedChess += 1
                             i += a
                             j += b
-                # game ends return winner
-                if linkedChess >= 5:
-                    return color
+                    # game ends return winner
+                    if linkedChess >= 5:
+                        return color
 
     # game still going
     return 0
