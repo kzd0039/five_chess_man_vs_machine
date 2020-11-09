@@ -6,7 +6,7 @@
 #           -1      draw
 
 def check(board, isBlack, chessCount):
-    # game end with draw
+    # game starts
     if chessCount == 0:
         return 0
     # game end with draw
@@ -26,9 +26,8 @@ def check(board, isBlack, chessCount):
                 color = board[r][c]
                 for d in direction:
                     for a, b in d:
-                        i = r, j = c
-                        i += a
-                        j += b
+                        i = r + a
+                        j = c + b
                         while isValid(i,j) and board[i][j] == color:
                             linkedChess += 1
                             i += a
@@ -36,6 +35,7 @@ def check(board, isBlack, chessCount):
                     # game ends return winner
                     if linkedChess >= 5:
                         return color
+
 
     # game still going
     return 0
