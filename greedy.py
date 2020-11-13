@@ -7,19 +7,19 @@ def _greedy(board, isBlack, chessCount):
     chess = 2 if isBlack else 1
     if chessCount == 0:
         board[7][7] = chess
-    return board
+        return board
 
-    position = [-1, -1]
+    x, y = -1, -1
     max_score = -1
     for r in range(15):
         for c in range(15):
-            cur_pattern = pattern(board, r, c, isBlack)
-            cur_score = score(cur_pattern)
-            if cur_score > max_score:
-                postion = [r, c]
-                max_score = cur_score
+            if (board[r][c] == 0):
+                cur_score = pattern(board, r, c, isBlack)
+                if cur_score > max_score:
+                    x, y = r, c
+                    max_score = cur_score
     
-    board[r][c] = chess
+    board[x][y] = chess
     return board
 
 

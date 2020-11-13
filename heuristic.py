@@ -7,7 +7,7 @@ def _heuristic(board, isBlack, chessCount):
     chess = 2 if isBlack else 1
     if chessCount == 0:
         board[7][7] = chess
-    return board
+        return board
 
 
 

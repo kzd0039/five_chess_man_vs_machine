@@ -9,9 +9,6 @@ def check(board, isBlack, chessCount):
     # game starts
     if chessCount == 0:
         return 0
-    # game end with draw
-    if chessCount == 15 ** 2:
-        return -1
 
     # define four direction
     direction = [[[0,1],[0,-1]],[[1,0],[-1,0]],[[1,1],[-1,-1]],[[1,-1],[-1,1]]]
@@ -21,10 +18,10 @@ def check(board, isBlack, chessCount):
     for r in range(15):
         for c in range(15):
             # count linked chess with the same color if current position is not null
-            if board[r][c] != 0:
-                linkedChess = 1
+            if board[r][c] != 0:           
                 color = board[r][c]
                 for d in direction:
+                    linkedChess = 1
                     for a, b in d:
                         i = r + a
                         j = c + b
@@ -35,7 +32,10 @@ def check(board, isBlack, chessCount):
                     # game ends return winner
                     if linkedChess >= 5:
                         return color
-
+                        
+    # game end with draw
+    if chessCount == 15 ** 2:
+        return -1
 
     # game still going
     return 0
