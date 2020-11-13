@@ -8,8 +8,9 @@ def battles(f1, f2, record):
     board = [[0 for n in range(15)] for n in range(15)]
     isBlack = True
     chessCount = 0
+    k = 2
     while (True):
-        board = f1(board, isBlack, chessCount)
+        board = f1(board, isBlack, chessCount,k)
         chessCount += 1
         result = check(board, isBlack, chessCount)
         for r in board:
@@ -20,7 +21,7 @@ def battles(f1, f2, record):
             break
         isBlack = not isBlack
 
-        board = f2(board, isBlack, chessCount)
+        board = f2(board, isBlack, chessCount,k)
         chessCount += 1
         result = check(board, isBlack, chessCount)
         for r in board:
@@ -54,7 +55,7 @@ def main():
     record = {1:0, 2:0, -1:0}
     for i in range(1):
         # reset all the parameter
-        battles(_greedy,_minimax,record)
+        battles(_greedy,_heuristic,record)
 
     print(record)
 
