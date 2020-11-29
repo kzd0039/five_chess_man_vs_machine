@@ -3,6 +3,8 @@ from alpha_beta_pruning import _alpha_beta_pruning
 from heuristic import _heuristic
 from minimax import _minimax
 from status import check
+import time
+
 
 def battles(f1, f2, record):
     board = [[0 for n in range(15)] for n in range(15)]
@@ -26,11 +28,14 @@ def battles(f1, f2, record):
         result = check(board, isBlack, chessCount)
         for r in board:
             print(r, end = '\n')
-        print('-------------------------------------------------')     
+        print('-------------------------------------------------')    
         if result != 0:
             record[result] += 1
             break
         isBlack = not isBlack
+
+def runningtime(f1, f2, record):
+    pass
 
 def main():
     # initialized the board
@@ -53,12 +58,11 @@ def main():
     #-1: number of draws
     
     record = {1:0, 2:0, -1:0}
+    start_time = time.time()
     for i in range(1):
-        # reset all the parameter
-        battles(_greedy,_heuristic,record)
-
+        battles(_heuristic,_heuristic, record)
     print(record)
-
+    print(time.time() - start_time)
 
 if __name__ == '__main__':
     main()

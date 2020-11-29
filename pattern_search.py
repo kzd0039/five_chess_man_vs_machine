@@ -142,7 +142,7 @@ def all_patterns(color):
     p2 = blank + color * 4 + blank
     p3= rival + color * 4 + blank
     p4 = blank + color * 3 + blank + color + blank
-    p5 = blank + color * 2 + blank + color + blank
+    p5 = blank + color * 2 + blank + color*2 + blank
     p6 = blank + color * 3 + blank
     p7 = blank + color * 2 + blank + color + blank
     p8 = rival + color * 3 + blank
