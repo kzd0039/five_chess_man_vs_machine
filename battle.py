@@ -10,7 +10,7 @@ def battles(f1, f2, record):
     board = [[0 for n in range(15)] for n in range(15)]
     isBlack = True
     chessCount = 0
-    k = 2
+    k = 3
     while (True):
         board = f1(board, isBlack, chessCount,k)
         chessCount += 1
@@ -60,7 +60,7 @@ def main():
     record = {1:0, 2:0, -1:0}
     start_time = time.time()
     for i in range(1):
-        battles(_heuristic,_heuristic, record)
+        battles(_greedy,_minimax, record)
     print(record)
     print(time.time() - start_time)
 

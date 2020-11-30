@@ -17,7 +17,8 @@ def pattern(board, r, c, isBlack):
 
 def huristic_score(board, r, c, isBlack):
     color = 2 if isBlack else 1
-    board[r][c] = color
+    if r != -1:
+        board[r][c] = color
     S = all_string(board)
     P = all_patterns(color)
     map = score_map()
@@ -27,7 +28,8 @@ def huristic_score(board, r, c, isBlack):
             ans += len(re.findall(p, s)) * map[i+1]
             if p[-1::-1] != p:
                 ans += len(re.findall(p[-1::-1], s)) * map[i+1]            
-    board[r][c] = 0
+    if r != -1:
+        board[r][c] = 0
     return ans
 
 def all_string(board):
