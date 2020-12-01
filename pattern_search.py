@@ -21,13 +21,13 @@ def huristic_score(board, r, c, isBlack):
         board[r][c] = color
     S = all_string(board)
     P = all_patterns(color)
-    map = score_map()
+    scoreMap = score_map()
     ans = 0
     for s in S:
         for i,p in enumerate(P):
-            ans += len(re.findall(p, s)) * map[i+1]
+            ans += len(re.findall(p, s)) * scoreMap[i+1]
             if p[-1::-1] != p:
-                ans += len(re.findall(p[-1::-1], s)) * map[i+1]            
+                ans += len(re.findall(p[-1::-1], s)) * scoreMap[i+1]            
     if r != -1:
         board[r][c] = 0
     return ans
