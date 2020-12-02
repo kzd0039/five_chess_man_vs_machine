@@ -1,17 +1,17 @@
 # five_chess_man_vs_machine battle
 
 ## running instructions
-environments: python 3.8.1<br>
-baseline battle: select the code segment in main() of battle.py and run<br>
-man vs machine: run main() of start_gomoku.py and follow the instruction to play<br>
+1. environments: python 3.8.1
+2. baseline battle: select the code segment in main() of battle.py and run
+3. man vs machine: run main() of start_gomoku.py and follow the instruction to play
 
 ## documents clarification
-baseline algorithms: alpha_beta_pruning.py, greedy.py, minimax.py, heuristic.py<br>
-customized algorithms: enhanced_minimax.py<br>
-game status check: status.py<br>
-pattern discovery and score function: pattern_search.py<br>
-man vs machine model: start_gomoku.py<br>
-test for function and syntax: sandbox.py, function_test.py<br>
+1. baseline algorithms: alpha_beta_pruning.py, greedy.py, minimax.py, heuristic.py
+2. customized algorithms: enhanced_minimax.py
+3. game status check: status.py
+4. pattern discovery and score function: pattern_search.py
+5. man vs machine model: start_gomoku.py
+6. test for function and syntax: sandbox.py, function_test.py
 
 ## baseline algorithms
 alpha_beta_pruning<br>
@@ -20,14 +20,14 @@ heuristic<br>
 greedy<br>
 ### input/output
 input: <br>
-    board -> 15*15 2-D array<br>
+    1. board -> 15*15 2-D array<br>
          contains only 3 possible integers:<br>
          black token: 2<br>
          white token: 1<br>
          blank/null: 0<br>
-    isBlack -> True(black token)/False(white token)<br>
-    chessCount -> number of chess on the current board<br>
-    k -> max depth of search, only used in minimax and alpha_beta_pruning<br>
+    2. isBlack -> True(black token)/False(white token)<br>
+    3. chessCount -> number of chess on the current board<br>
+    4. k -> max depth of search, only used in minimax and alpha_beta_pruning<br>
 output: <br>
      board -> 15*15 2-D array<br>
 
