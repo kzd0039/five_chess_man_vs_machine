@@ -38,13 +38,13 @@ input/output: same as baseline algorithms
 ## status of board
 check(board, isBlack, chessCount)<br>
 input: 
-    board -> 15*15 2-D array<br>
+    1. board -> 15*15 2-D array<br>
          contains only 3 possible integers:<br>
          black token: 2<br>
          white token: 1<br>
          blank/null: 0<br>
-    isBlack -> True(black token)/False(white token)<br>
-    chessCount -> number of chess on the current board<br>
+    2. isBlack -> True(black token)/False(white token)<br>
+    3. chessCount -> number of chess on the current board<br>
 
 output:<br>
     1 -> white wins<br>
@@ -86,21 +86,21 @@ score of pattern:<br>
 score calculation depends on specific algorithm<br>
 
 ## baseline algorithms evaluation protocol
-battle interface: <br>
+1. battle interface: <br>
     battles(f1,f2,record) <br>
     f1, f2 -> selected algorighms to battle(f1 holds black, f2 holds white)<br>
     record -> dict records the winner<br>
 
-battle protocol of two algotithms f1, f2:<br>
+2. battle protocol of two algotithms f1, f2:<br>
     let f1 holds black, f2 holds white, battle 100 times<br>
     (call battles(f1,f2, record) for 100 times)<br>
     Then let f2 holds black, f1 holds white, battle 100 times<br>
     (call battles(f2,f1,record) for 100 times)<br>
 
-multiprocessBattle:<br>
+3. multiprocessBattle:<br>
     To save running time, multiprocessBattle can be used for battle of two algorthms.<br>
 
-running time:<br>
+4. running time:<br>
     let selected algorithm battle with itself for 5 times, <br>
     count total steps and total running time, then calculate <br>
     average running time of each step <br>
@@ -120,6 +120,6 @@ running time:<br>
 5. enhanced_alpha_beta_pruning -> 9.51 second per step
 
 ## man vs machine model:
-    1. select one of the five algorithms to battle
-    2. enter the postition to place your chess(by default, AI plays first and holds black)
+1. select one of the five algorithms to battle
+2. enter the postition to place your chess(by default, AI plays first and holds black)
 
