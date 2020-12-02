@@ -2,7 +2,7 @@
 
 ## running instructions
 environments: python 3.8.1<br>
-baseline battle: run the main() in battle.py<br>
+baseline battle: select the code segment in main() of battle.py and run<br>
 man vs machine: run main() of start_gomoku.py and follow the instruction to play<br>
 
 ## documents clarification
@@ -92,16 +92,34 @@ battle interface: <br>
     record -> dict records the winner<br>
 
 battle protocol of two algotithms f1, f2:<br>
-    let f1 holds black, f2 holds white, battle 150 times<br>
-    (call battles(f1,f2, record) for 150 times)<br>
-    Then let f2 holds black, f1 holds white, battle 150 times<br>
-    (call battles(f2,f1,record) for 150 times)<br>
+    let f1 holds black, f2 holds white, battle 100 times<br>
+    (call battles(f1,f2, record) for 100 times)<br>
+    Then let f2 holds black, f1 holds white, battle 100 times<br>
+    (call battles(f2,f1,record) for 100 times)<br>
+
+multiprocessBattle:<br>
+    To save running time, multiprocessBattle can be used for battle of two algorthms.<br>
 
 running time:<br>
     let selected algorithm battle with itself for 5 times, <br>
     count total steps and total running time, then calculate <br>
     average running time of each step <br>
 
+## running results of baseline battle
+### success rate
+1. heuristic vs greedy -> 106 : 94
+2. alpha_beta_pruning vs minimax -> 31 : 19
+3. heuristic vs alpha_beta_pruning -> 17 : 33
+4. enhanced_alpha_beta_pruning vsalpha_beta_pruning -> 27 : 23
+
+### running time
+1. heuristic -> 0.73 second per step
+2. greedy -> 0.05 second per step
+3. alpha_beta_pruning -> 79.52 second per step
+4. minimax -> 9.69 second per step
+5. enhanced_alpha_beta_pruning -> 9.51 second per step
+
 ## man vs machine model:
     1. select one of the five algorithms to battle
     2. enter the postition to place your chess(by default, AI plays first and holds black)
+

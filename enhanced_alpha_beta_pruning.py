@@ -4,7 +4,7 @@ import random
 
 # construct the method here
 # black = 2, white = 1, null = 0
-def _minimax(board, isBlack, chessCount, k):
+def _enhanced_alpha_beta_pruning(board, isBlack, chessCount,k):
     # base case: no chess on the board, put the first chess on r = 7,c = 7
     chess = 2 if isBlack else 1
     if chessCount == 0:
@@ -13,8 +13,6 @@ def _minimax(board, isBlack, chessCount, k):
     positions = defaultdict(list)
     max_score = float('-inf')
     # count = 0
-    # for i in range(15):
-    #     for j in range(15):
     for i,j in search_area(board):
         board[i][j] = chess
         score =  dfs(board, not isBlack, k, isBlack)
@@ -38,8 +36,12 @@ def dfs(board, isBlack, k, original_player):
     # max_score = float('-inf')
     if k == 1:
         return huristic_score(board, -1, -1, original_player)
-    # if isBlack == original_player:
-    #     k -= 1
+
+    original = huristic_score(board, -1, -1, original_player)
+    rival = huristic_score(board, -1, -1, not original_player)
+
+    if original >= rival:
+        return original
     k -= 1
     if isBlack == original_player:
         score = float('-inf')
@@ -79,24 +81,8 @@ def direction():
 def isValid(i, j):
     return i > -1 and i < 15 and j > -1 and j < 15
 
-
 def main():
-    board = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],   
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
-    print(search_area(board))
+    pass
 
 if __name__ == '__main__':
     main()
